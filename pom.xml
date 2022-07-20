@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.sergeyingit</groupId>
 	<artifactId>javarush-bot</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
+	<version>0.5.0-SNAPSHOT</version>
 	<name>javarush-bot</name>
 	<description>Telegram bot for Javarush from community to community</description>
 	<properties>
@@ -55,6 +55,18 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.konghq</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>3.13.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.11</version>
 		</dependency>
 
 	</dependencies>
