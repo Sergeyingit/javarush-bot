@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.sergeyingit</groupId>
 	<artifactId>javarush-bot</artifactId>
-	<version>0.6.0-SNAPSHOT</version>
+	<version>0.7.0-SNAPSHOT</version>
 	<name>javarush-bot</name>
 	<description>Telegram bot for Javarush from community to community</description>
 	<properties>
