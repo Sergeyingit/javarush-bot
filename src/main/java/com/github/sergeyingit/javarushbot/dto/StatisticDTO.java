@@ -1,4 +1,4 @@
-package com.github.sergeyingit.javarushbot.javarushclient.dto;
+package com.github.sergeyingit.javarushbot.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

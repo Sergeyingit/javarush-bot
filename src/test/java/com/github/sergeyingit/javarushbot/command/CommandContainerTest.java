@@ -11,9 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static java.util.Collections.singletonList;
 
@@ -38,7 +36,7 @@ class CommandContainerTest {
         //when-then
         Arrays.stream(CommandName.values())
                 .forEach(commandName -> {
-                    Command command = commandContainer.retrieveCommand(commandName.getCommandName(), "userId");
+                    Command command = commandContainer.findCommand(commandName.getCommandName(), "userId");
                     Assertions.assertNotEquals(UnknownCommand.class, command.getClass());
                 });
     }
@@ -49,7 +47,7 @@ class CommandContainerTest {
         String unknownCommand = "/fgjhdfgdfg";
 
         //when
-        Command command = commandContainer.retrieveCommand(unknownCommand, "userId");
+        Command command = commandContainer.findCommand(unknownCommand, "userId");
 
         //then
         Assertions.assertEquals(UnknownCommand.class, command.getClass());

@@ -39,7 +39,7 @@ public class CommandContainer {
         this.admins = admins;
     }
 
-    public Command retrieveCommand(String commandIdentifier, String userId) {
+    public Command findCommand(String commandIdentifier, String userId) {
         Command orDefault = commandMap.getOrDefault(commandIdentifier, unknownCommand);
         if (isAdminCommand(orDefault)) {
             if (admins.contains(userId)) {

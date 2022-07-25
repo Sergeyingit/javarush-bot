@@ -1,7 +1,7 @@
 package com.github.sergeyingit.javarushbot.service;
 
-import com.github.sergeyingit.javarushbot.javarushclient.dto.GroupStatDTO;
-import com.github.sergeyingit.javarushbot.javarushclient.dto.StatisticDTO;
+import com.github.sergeyingit.javarushbot.dto.GroupStatDTO;
+import com.github.sergeyingit.javarushbot.dto.StatisticDTO;
 import com.github.sergeyingit.javarushbot.repository.entity.TelegramUser;
 import org.springframework.stereotype.Service;
 
