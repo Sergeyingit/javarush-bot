@@ -1,7 +1,7 @@
 package com.github.sergeyingit.javarushbot.command;
 
-import com.github.sergeyingit.javarushbot.javarushclient.dto.GroupStatDTO;
-import com.github.sergeyingit.javarushbot.javarushclient.dto.StatisticDTO;
+import com.github.sergeyingit.javarushbot.dto.GroupStatDTO;
+import com.github.sergeyingit.javarushbot.dto.StatisticDTO;
 import com.github.sergeyingit.javarushbot.service.SendBotMessageService;
 import com.github.sergeyingit.javarushbot.service.StatisticsService;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +12,6 @@ import org.mockito.Mockito;
 import java.util.Collections;
 
 import static com.github.sergeyingit.javarushbot.command.AbstractCommandTest.prepareUpdate;
-import static com.github.sergeyingit.javarushbot.command.CommandName.STAT;
 import static com.github.sergeyingit.javarushbot.command.StatCommand.STAT_MESSAGE;
 import static java.lang.String.format;
 
@@ -43,7 +42,7 @@ public class StatCommandTest {
         statCommand.execute(prepareUpdate(chatId, CommandName.STAT.getCommandName()));
 
         //then
-        Mockito.verify(sendBotMessageService).sendMessage(chatId.toString(), format(STAT_MESSAGE,
+        Mockito.verify(sendBotMessageService).sendMessage(chatId, format(STAT_MESSAGE,
                 statisticDTO.getActiveUserCount(),
                 statisticDTO.getInactiveUserCount(),
                 statisticDTO.getAverageGroupCountByUser(),

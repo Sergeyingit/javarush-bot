@@ -1,7 +1,7 @@
 package com.github.sergeyingit.javarushbot.service;
 
-import com.github.sergeyingit.javarushbot.javarushclient.dto.GroupStatDTO;
-import com.github.sergeyingit.javarushbot.javarushclient.dto.StatisticDTO;
+import com.github.sergeyingit.javarushbot.dto.GroupStatDTO;
+import com.github.sergeyingit.javarushbot.dto.StatisticDTO;
 import com.github.sergeyingit.javarushbot.repository.entity.GroupSub;
 import com.github.sergeyingit.javarushbot.repository.entity.TelegramUser;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Unit-level testing for StatisticsService")
 class StatisticsServiceTest {

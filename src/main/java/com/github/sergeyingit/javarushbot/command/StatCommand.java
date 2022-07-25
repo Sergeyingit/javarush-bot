@@ -1,14 +1,15 @@
 package com.github.sergeyingit.javarushbot.command;
 
 import com.github.sergeyingit.javarushbot.command.annotation.AdminCommand;
-import com.github.sergeyingit.javarushbot.javarushclient.dto.StatisticDTO;
+import com.github.sergeyingit.javarushbot.dto.StatisticDTO;
 import com.github.sergeyingit.javarushbot.service.SendBotMessageService;
 import com.github.sergeyingit.javarushbot.service.StatisticsService;
-import com.github.sergeyingit.javarushbot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.stream.Collectors;
+
+import static com.github.sergeyingit.javarushbot.command.CommandUtils.getChatId;
 
 /**
  * Statistics {@link Command}.
@@ -39,7 +40,7 @@ public class StatCommand implements Command{
                 .map(it -> String.format("%s (id = %s) - %s подписчиков", it.getTitle(), it.getId(), it.getActiveUserCount()))
                 .collect(Collectors.joining("\n"));
 
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), String.format(STAT_MESSAGE,
+        sendBotMessageService.sendMessage(getChatId(update), String.format(STAT_MESSAGE,
                 statisticDTO.getActiveUserCount(),
                 statisticDTO.getInactiveUserCount(),
                 statisticDTO.getAverageGroupCountByUser(),

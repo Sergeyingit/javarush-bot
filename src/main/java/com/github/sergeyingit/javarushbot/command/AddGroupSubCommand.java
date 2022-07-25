@@ -40,7 +40,7 @@ public class AddGroupSubCommand implements Command{
             return;
         }
         String groupId = getMessage(update).split(SPACE)[1];
-        String chatId = getChatId(update);
+        Long chatId = getChatId(update);
         if (isNumeric(groupId)) {
             GroupDiscussionInfo groupById = javaRushGroupClient.getGroupById(Integer.parseInt(groupId));
             if (isNull(groupById.getId())) {
@@ -49,16 +49,21 @@ public class AddGroupSubCommand implements Command{
             GroupSub savedGroupSub = groupSubService.save(chatId, groupById);
             sendBotMessageService.sendMessage(chatId, "Подписал на группу " + savedGroupSub.getTitle());
         } else {
-            sendGroupNotFound(chatId, groupId);
+            sendNotValidGroupID(chatId, groupId);
         }
     }
 
-    private void sendGroupNotFound(String chatId, String groupId) {
+    private void sendGroupNotFound(Long chatId, String groupId) {
         String groupNotFoundMessage = "Нет группы с ID = \"%s\"";
         sendBotMessageService.sendMessage(chatId, String.format(groupNotFoundMessage, groupId));
     }
 
-    private void sendGroupIdList(String chatId) {
+    private void sendNotValidGroupID(Long chatId, String groupId) {
+        String groupNotFoundMessage = "Неправильный ID группы = \"%s\"";
+        sendBotMessageService.sendMessage(chatId, String.format(groupNotFoundMessage, groupId));
+          }
+
+    private void sendGroupIdList(Long chatId) {
         String groupIds = javaRushGroupClient.getGroupList(GroupRequestArgs.builder().build()).stream()
                 .map(group -> String.format("%s - %s \n", group.getTitle(), group.getId()))
                 .collect(Collectors.joining());
